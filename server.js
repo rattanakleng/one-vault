@@ -6,6 +6,10 @@ const app = express();
 //Connect Database
 connectDB();
 
+// Init Middleware
+app.use(express.json({extended: false}));
+
+
 // add route 
 app.get('/', (req, res) => res.json({msg: "Welcome to react"}));
 
