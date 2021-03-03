@@ -1,6 +1,10 @@
 const express = require('express');
+const connectDB = require('./config/db');
 //setup express app
 const app = express();
+
+//Connect Database
+connectDB();
 
 // add route 
 app.get('/', (req, res) => res.json({msg: "Welcome to react"}));
