@@ -10,6 +10,8 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 // import middleware express validator
 const { check, validationResult } = require('express-validator/check');
+//import middle to proteck route
+const auth = require('../middleware/auth')
 
 
 const User = require('../models/User');
@@ -20,9 +22,17 @@ const User = require('../models/User');
 // @desc Get logged in user
 // @access Private
 // '/' point to api/auths by default
-router.get('/', (req, res) => {
-    res.send('Get logged in user');
-});
+// this route is private and need to be protected so it require protected middleware "auth"
+router.get('/', auth, async (req, res) => {
+  try {
+        //mongoose method to find user by id and take out password before send it to user
+        const user = await User.findById(req.user.id).select('-password');
+        res.json(user);
+      } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+      }
+    });
 
 // @route POST api/auth
 // @desc Auth user & get token
@@ -71,7 +81,7 @@ router.post(
             //see'jswtSecret' in default.json
             //test with postman to see token
             //go to jwt.io and passvalue from postman to see data report
-            jwt.sign(payload, config.get('jwtSecrete'), {
+            jwt.sign(payload, config.get('jwtSecret'), {
                 // set expire in an hour/3600 second
                 expiresIn: 3600
             }, (err, token) => {
@@ -87,3 +97,6 @@ router.post(
     })
 
 module.exports = router
+
+
+
