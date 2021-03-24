@@ -1,6 +1,6 @@
-# artwork-market-place
+# One-Vault
 
-> Full stack MERN contact manager with React hooks, context & JWT authentication. Part of my React course on Udemy.
+> Full stack MERN password manager with React hooks, context & JWT authentication.
 
 ## Usage
 Install dependencies
