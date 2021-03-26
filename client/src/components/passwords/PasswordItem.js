@@ -1,18 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { Col } from '../layout/Grid/Grid'
+import PasswordContext from '../../context/password/passwordContex'
 
-const PasswordItem = ({
-  name,
-  userName,
-  website,
-  passwordValue,
-  passwordHint,
-  securityQuestion,
-  securityAnswer,
-  securityImage,
-  other,
-}) => {
+const PasswordItem = (password) => {
+  const {
+    _id,
+    name,
+    userName,
+    website,
+    passwordValue,
+    passwordHint,
+    securityQuestion,
+    securityAnswer,
+    securityImage,
+    other,
+  } = password
+
+  const passwordContext = useContext(PasswordContext);
+  const { deletePassword, setCurrent, clearCurrent } = passwordContext;
+  
+  const onDelete = () => {
+    deletePassword(_id);
+    clearCurrent();
+  };
+
   return (
     <Col size="md-6 sm-6">
       <div className="card rounded-0 mt-3">
@@ -74,19 +86,16 @@ const PasswordItem = ({
             </p>
           )}
 
-          <a
-            href="/"
+          <button
             className="btn border-prussian-blue mx-2 mb-3 float-right "
+            onClick={onDelete}
           >
             Delete
-          </a>
+          </button>
 
-          <a
-            href="/"
-            className="btn bg-prussian-blue text-white mb-3 float-right"
-          >
+          <button className="btn bg-prussian-blue text-white mb-3 float-right" onClick={onDelete}>
             Update
-          </a>
+          </button>
         </div>
       </div>
     </Col>

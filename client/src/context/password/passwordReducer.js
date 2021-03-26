@@ -16,6 +16,16 @@ export default (state, action) => {
         ...state,
         passwords: [...state.passwords, action.payload],
       }
+    
+      case DELETE_PASSWORD:
+        return {
+          ...state,
+          contacts: state.contacts.filter(
+            contact => contact._id !== action.payload
+          ),
+          loading: false
+        };
+
     default:
       return state;
   }
