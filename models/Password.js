@@ -1,24 +1,24 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const PasswordSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'users',
   },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   userName: {
     type: String,
-    required: true
-  },
-  website: {
-    type: String,
+    required: true,
   },
   passwordValue: {
     type: String,
-    required: true
+    required: true,
+  },
+  website: {
+    type: String,
   },
   passwordHint: {
     type: String,
@@ -32,10 +32,13 @@ const PasswordSchema = mongoose.Schema({
   securityImage: {
     type: String,
   },
+  other: {
+    type: String,
+  },
   date: {
     type: Date,
-    default: Date.now
-  }
-});
+    default: Date.now,
+  },
+})
 
-module.exports = mongoose.model('password', PasswordSchema);
+module.exports = mongoose.model('password', PasswordSchema)
