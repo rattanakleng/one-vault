@@ -8,6 +8,7 @@ import ViewPassword from './components/pages/ViewPassword'
 import PasswordState from './context/password/PasswordState'
 import AuthState from './context/auth/AuthState'
 import AlertState from './context/alert/AlertState'
+import Alerts from './components/share/Alerts/Alerts'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <AlertState>
             <Router>
               <Navbar />
+              <Alerts />
               <Switch>
                 <Route exact path="/" component={Login} />
                 <Route exact path="/viewPassword" component={ViewPassword} />
