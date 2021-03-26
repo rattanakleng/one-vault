@@ -3,8 +3,8 @@ import Passwords from '../../components/passwords/Passwords'
 
 const ViewPassword = () => {
   return (
-    <div>
-      <h1 className="text-center">View Password Page</h1>
+    <div className="bg-light-gray pt-4">
+      <h1 className="text-center my-5"> All Passwords </h1>
         <Passwords />
     </div>
   )

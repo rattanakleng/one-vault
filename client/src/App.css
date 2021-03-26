@@ -1,0 +1,45 @@
+:root {
+  --baby-blue: #a2c7fe;
+  --pale-spring: #e5ddae;
+  --prussian-blue: #112a46;
+  --silver-pink: #ceb2b1;
+  --light-gray: #ced4da;
+  --beau-blue: #b2c4cf;
+  --white: #ffffff;
+}
+
+body {
+  color: var(--prussian-blue);
+}
+
+a {
+  color: var(--prussian-blue);
+}
+
+a:hover {
+  color: var(--silver-pink);
+}
+
+.bg-light-gray {
+  background-color: var(--light-gray);
+}
+
+.bg-pale-spring {
+  background-color: var(--pale-spring);
+}
+
+.bg-baby-blue {
+    background-color: var(--baby-blue);
+  }
+
+  .bg-beau-blue{
+    background-color: var(--beau-blue);
+  }
+
+  .bg-prussian-blue {
+    background-color: var(--prussian-blue)
+  }
+
+.border-prussian-blue {
+  border-color: var(--prussian-blue);
+}

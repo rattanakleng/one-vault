@@ -1,14 +1,14 @@
-import React, { useReducer } from 'react'
-import uuid from 'uuid'
-import PasswordContext from './passwordContex'
-import passwordReducer from './passwordReducer'
+import React, { useReducer } from 'react';
+import uuid from 'react-uuid';
+import PasswordContext from './passwordContex';
+import passwordReducer from './passwordReducer';
 import {
-  ADD_CONTACT,
-  DELETE_CONTACT,
+  ADD_PASSWORD,
+  DELETE_PASSWORD,
   SET_CURRENT,
   CLEAR_CURRENT,
-  UPDATE_CONTACT,
-  FILTER_CONTACTS,
+  UPDATE_PASSWORD,
+  FILTER_PASSWORDS,
   CLEAR_FILTER,
 } from '../types'
 
@@ -54,6 +54,10 @@ const PasswordState = (props) => {
   const [state, dispatch] = useReducer(passwordReducer, initialState)
 
   // Add Password
+  const addPassword = password => {
+    password.id = uuid();
+    dispatch({ type: ADD_PASSWORD, payload: password });
+  }
 
   // Delete Password
 
@@ -71,6 +75,7 @@ const PasswordState = (props) => {
     <PasswordContext.Provider
       value={{
         passwords: state.passwords,
+        addPassword
       }}
     >
       {props.children}
@@ -78,4 +83,4 @@ const PasswordState = (props) => {
   )
 }
 
-export default PasswordState;
+export default PasswordState
