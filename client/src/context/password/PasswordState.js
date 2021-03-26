@@ -17,9 +17,9 @@ const PasswordState = (props) => {
     passwords: [
       {
         id: 1,
-        name: 'Home Depot',
+        name: 'home depot',
         userName: 'HomeDepotUserName',
-        website: 'https://www.homedepot.com',
+        website: '',
         passwordValue: 'homedepot123',
         passwordHint: 'general pattern',
         securityQuestion: 'What stree were you born',
@@ -28,7 +28,7 @@ const PasswordState = (props) => {
       },
       {
         id: 3,
-        name: 'Lowes',
+        name: 'lowes',
         userName: 'LowesUserName',
         website: 'https://www.lowes.com',
         passwordValue: 'lowes123',
@@ -39,7 +39,7 @@ const PasswordState = (props) => {
       },
       {
         id: 4,
-        name: 'Wayfair',
+        name: 'wayfair',
         userName: 'WayfairUserName',
         website: 'https://www.wayfair.com',
         passwordValue: 'wayfair123',
