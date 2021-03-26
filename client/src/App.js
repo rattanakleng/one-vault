@@ -7,22 +7,29 @@ import Login from './components/pages/Login'
 import ViewPassword from './components/pages/ViewPassword'
 import PasswordState from './context/password/PasswordState'
 import AuthState from './context/auth/AuthState'
+import AlertState from './context/alert/AlertState'
 
 function App() {
   return (
     <div className="App">
       <AuthState>
         <PasswordState>
-          <Router>
-            <Navbar />
-            <Switch>
-              <Route exact path="/" component={Login} />
-              <Route exact path="/viewPassword" component={ViewPassword} />
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/createPassword" component={CreatePassword} />
-            </Switch>
-          </Router>
+          <AlertState>
+            <Router>
+              <Navbar />
+              <Switch>
+                <Route exact path="/" component={Login} />
+                <Route exact path="/viewPassword" component={ViewPassword} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/login" component={Login} />
+                <Route
+                  exact
+                  path="/createPassword"
+                  component={CreatePassword}
+                />
+              </Switch>
+            </Router>
+          </AlertState>
         </PasswordState>
       </AuthState>
     </div>
