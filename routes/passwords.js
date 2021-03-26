@@ -52,7 +52,9 @@ router.post(
         securityQuestion,
         securityAnswer,
         securityImage,
+        other,
         user: req.user.id
+        
       });
 
       const password = await newPassword.save();
@@ -69,7 +71,7 @@ router.post(
 // @desc      Update password
 // @access    Private
 router.put('/:id', auth, async (req, res) => {
-  const { name, userName, website, passwordValue, passwordHint, securityQuestion, securityAnswer, securityImage } = req.body;
+  const { name, userName, website, passwordValue, passwordHint, securityQuestion, securityAnswer, securityImage, other } = req.body;
 
   // Build password object
   const passwordFields = {};
@@ -81,6 +83,7 @@ router.put('/:id', auth, async (req, res) => {
   if (securityQuestion) passwordFields.securityQuestion = securityQuestion;
   if (securityAnswer) passwordFields.securityAnswer = securityAnswer;
   if (securityImage) passwordFields.securityImage = securityImage;
+  if (other) passwordFields.other = other;
 
   try {
     let password = await Password.findById(req.params.id);

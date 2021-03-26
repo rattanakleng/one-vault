@@ -1,36 +1,23 @@
 import React, { useState } from 'react'
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [user, setUser] = useState({
-    name: '',
     email: '',
     password: '',
-    password2: '',
   })
 
-  const { name, email, password, password2 } = user
+  const { email, password } = user
 
-  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
+  const onChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
 
-  const onSubmit = e => {
-      e.preventDefault();
-      console.log('Register Submit');
+  const onSubmit = (e) => {
+    e.preventDefault()
+    console.log('Login Submit')
   }
 
   return (
     <div className="container px-5">
       <form onSubmit={onSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input
-            className="form-control"
-            type="text"
-            name="name"
-            value={name}
-            onChange={onChange}
-          />
-        </div>
-
         <div className="form-group">
           <label htmlFor="email">Email Address</label>
           <input
@@ -53,21 +40,10 @@ const RegisterForm = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="password2">Confirm Password</label>
-          <input
-            className="form-control"
-            type="password"
-            name="password2"
-            value={password2}
-            onChange={onChange}
-          />
-        </div>
-
         <div>
           <input
             type="submit"
-            value="Register"
+            value="Login"
             className="btn bg-prussian-blue text-white mx-2"
           />
         </div>
@@ -76,4 +52,4 @@ const RegisterForm = () => {
   )
 }
 
-export default RegisterForm
+export default LoginForm
