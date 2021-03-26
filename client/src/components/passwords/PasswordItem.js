@@ -93,7 +93,7 @@ const PasswordItem = (password) => {
             Delete
           </button>
 
-          <button className="btn bg-prussian-blue text-white mb-3 float-right" onClick={onDelete}>
+          <button className="btn bg-prussian-blue text-white mb-3 float-right" onClick={() => setCurrent(password)} >
             Update
           </button>
         </div>
