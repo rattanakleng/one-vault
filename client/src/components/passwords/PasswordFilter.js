@@ -13,7 +13,7 @@ const PasswordFilter = () => {
     }
   })
 
-  const onChange = (e) => {
+  const onChange = e => {
     if (text.current.value !== '') {
       filterPasswords(e.target.value)
     } else {
@@ -22,7 +22,7 @@ const PasswordFilter = () => {
   }
 
   return (
-      
+
     <div className="container mb-4">
       <form>
         <input
