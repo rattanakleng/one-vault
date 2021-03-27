@@ -1,37 +1,50 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { Col } from '../layout/Grid/Grid'
+import PasswordContext from '../../context/password/passwordContex'
 
-const PasswordItem = ({
-  name,
-  userName,
-  website,
-  passwordValue,
-  passwordHint,
-  securityQuestion,
-  securityAnswer,
-  securityImage,
-  other,
-}) => {
+const PasswordItem = (password) => {
+  const {
+    _id,
+    name,
+    userName,
+    website,
+    passwordValue,
+    passwordHint,
+    securityQuestion,
+    securityAnswer,
+    securityImage,
+    other,
+  } = password
+
+  const passwordContext = useContext(PasswordContext);
+  const { deletePassword, setCurrent, clearCurrent } = passwordContext;
+  
+  const onDelete = () => {
+    deletePassword(_id);
+    clearCurrent();
+  };
+
   return (
     <Col size="md-6 sm-6">
-      <div className="card my-3">
-        <div className="card-body">
-          <h5 className="card-header">
+      <div className="card rounded-0 mt-3">
+        <div className="card-body p-1">
+          <h5 className="card-header bg-pale-spring rounded-0 pl-4">
             {name.charAt(0).toUpperCase() + name.slice(1)}
           </h5>
 
-          <p>
-            <strong>User Name:</strong> {userName}
+          <p className="card-text mx-4 mt-3">
+            <span className="font-weight-bold mr-2">User Name:</span> {userName}
           </p>
 
-          <p className="card-text">
-            <strong>Password:</strong> {passwordValue}
+          <p className="card-text mx-4">
+            <span className="font-weight-bold mr-2">Password:</span>{' '}
+            {passwordValue}
           </p>
 
           {website && (
-            <p>
-              <strong>Website: </strong>
+            <p className="card-text mx-4">
+              <span className="font-weight-bold mr-2">Website: </span>
               <a href={website} target="_blank" className="card-text">
                 {website}
               </a>
@@ -39,43 +52,50 @@ const PasswordItem = ({
           )}
 
           {passwordHint && (
-            <p className="card-text">
-              <strong>Password Hint:</strong> {passwordHint}
+            <p className="card-text mx-4">
+              <span className="font-weight-bold mr-2">Password Hint:</span>{' '}
+              {passwordHint}
             </p>
           )}
 
           {securityQuestion && (
-            <p classNameName="card-text">
-              <strong>Security Question:</strong> {securityQuestion}
+            <p className="card-text mx-4">
+              <span className="font-weight-bold mr-2">Security Question:</span>{' '}
+              {securityQuestion}
             </p>
           )}
 
           {securityAnswer && (
-            <p classNameName="card-text">
-              <strong>Security Question:</strong> {securityAnswer}
+            <p className="card-text mx-4">
+              <span className="font-weight-bold mr-2">Security Question:</span>{' '}
+              {securityAnswer}
             </p>
           )}
 
           {securityImage && (
-            <p classNameName="card-text">
-              <strong>Security Question:</strong> {securityImage}
+            <p className="card-text mx-4">
+              <span className="font-weight-bold mr-2">Security Question:</span>{' '}
+              {securityImage}
             </p>
           )}
 
           {other && (
-            <p classNameName="card-text">
-              <strong>Security Question:</strong> {other}
+            <p className="card-text mx-4">
+              <span className="font-weight-bold mr-2">Security Question:</span>{' '}
+              {other}
             </p>
           )}
 
-          <a href="/" className="btn btn-primary">
-            Update
-          </a>
-
-          <a href="/" className="btn btn-danger mx-2">
+          <button
+            className="btn border-prussian-blue mx-2 mb-3 float-right "
+            onClick={onDelete}
+          >
             Delete
-          </a>
-          
+          </button>
+
+          <button className="btn bg-prussian-blue text-white mb-3 float-right" onClick={onDelete}>
+            Update
+          </button>
         </div>
       </div>
     </Col>

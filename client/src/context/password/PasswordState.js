@@ -1,14 +1,16 @@
-import React, { useReducer } from 'react'
-import uuid from 'uuid'
-import PasswordContext from './passwordContex'
-import passwordReducer from './passwordReducer'
+import React, { useReducer } from 'react';
+import uuid from 'react-uuid';
+import PasswordContext from './passwordContex';
+import passwordReducer from './passwordReducer';
+import axios from 'axios';
 import {
-  ADD_CONTACT,
-  DELETE_CONTACT,
+  ADD_PASSWORD,
+  DELETE_PASSWORD,
+  PASSWORD_ERROR,
   SET_CURRENT,
   CLEAR_CURRENT,
-  UPDATE_CONTACT,
-  FILTER_CONTACTS,
+  UPDATE_PASSWORD,
+  FILTER_PASSWORDS,
   CLEAR_FILTER,
 } from '../types'
 
@@ -27,7 +29,7 @@ const PasswordState = (props) => {
         securityImage: 'chicken',
       },
       {
-        id: 3,
+        id: 2,
         name: 'lowes',
         userName: 'LowesUserName',
         website: 'https://www.lowes.com',
@@ -38,7 +40,7 @@ const PasswordState = (props) => {
         securityImage: 'spacNeedle',
       },
       {
-        id: 4,
+        id: 3,
         name: 'wayfair',
         userName: 'WayfairUserName',
         website: 'https://www.wayfair.com',
@@ -54,12 +56,34 @@ const PasswordState = (props) => {
   const [state, dispatch] = useReducer(passwordReducer, initialState)
 
   // Add Password
+  const addPassword = password => {
+    password.id = uuid();
+    dispatch({ type: ADD_PASSWORD, payload: password });
+  };
 
   // Delete Password
+  const deletePassword = async id => {
+    try {
+      await axios.delete(`/api/passwords/${id}`);
+
+      dispatch({
+        type: DELETE_PASSWORD,
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: PASSWORD_ERROR,
+        payload: err.response.msg
+      });
+    }
+  };
 
   // Set Current Contact
 
   // Clear Current Contact
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT });
+  };
 
   // Update Contact
 
@@ -71,6 +95,9 @@ const PasswordState = (props) => {
     <PasswordContext.Provider
       value={{
         passwords: state.passwords,
+        addPassword,
+        deletePassword,
+        clearCurrent
       }}
     >
       {props.children}
@@ -78,4 +105,4 @@ const PasswordState = (props) => {
   )
 }
 
-export default PasswordState;
+export default PasswordState
