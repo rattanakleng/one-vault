@@ -8,7 +8,7 @@ const Alerts = () => {
     alertContext.alerts.length > 0 &&
     alertContext.alerts.map((alert) => (
       <div key={alert.id} className={`alert alert-${alert.type} text-center`}>
-        {alert.msg}
+        <i className="fas fa-exclamation-triangle"></i> {alert.msg}
       </div>
     ))
   )
