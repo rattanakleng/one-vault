@@ -1,10 +1,14 @@
 import React, { useState, useContext } from 'react'
 import AlertContext from '../../context/alert/alertContext'
+import AuthContext from '../../context/auth/authContext'
 
 const RegisterForm = () => {
   const alertContext = useContext(AlertContext)
+  const authContext = useContext(AuthContext);
 
   const { setAlert } = alertContext
+
+  const { register } = authContext
 
   const [user, setUser] = useState({
     name: '',
@@ -20,17 +24,15 @@ const RegisterForm = () => {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    if (password !== password2) {
-       setAlert('Passwords do not match', 'danger')
-    } 
-
-    // if (name === '' || email === '' || password === '') {
-    //   setAlert('Please enter all fields', 'danger')
-    // } else if (password !== password2) {
-    //   setAlert('Passwords do not match', 'danger')
-    // } else {
-    //   console.log('Register Submit')
-    // }
+    if (name === '' || email === '' || password === '') {
+      setAlert('Please enter all fields', 'danger')
+    } else if (password !== password2) {
+      setAlert('Passwords do not match', 'danger')
+    } else {
+      register({
+        name, email, password
+      });
+    }
  
 
   }
