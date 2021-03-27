@@ -29,17 +29,33 @@ a:hover {
 }
 
 .bg-baby-blue {
-    background-color: var(--baby-blue);
-  }
+  background-color: var(--baby-blue);
+}
 
-  .bg-beau-blue{
-    background-color: var(--beau-blue);
-  }
+.bg-beau-blue {
+  background-color: var(--beau-blue);
+}
 
-  .bg-prussian-blue {
-    background-color: var(--prussian-blue)
-  }
+.bg-prussian-blue {
+  background-color: var(--prussian-blue);
+}
 
 .border-prussian-blue {
   border-color: var(--prussian-blue);
+}
+
+/* Animation (Add After) */
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 1000ms ease-in;
 }

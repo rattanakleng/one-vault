@@ -16,43 +16,45 @@ import {
 } from '../types'
 
 const PasswordState = (props) => {
-  const initialState = {
-    passwords: [
-      {
-        id: 1,
-        name: 'home depot',
-        userName: 'HomeDepotUserName',
-        website: '',
-        passwordValue: 'homedepot123',
-        passwordHint: 'general pattern',
-        securityQuestion: 'What stree were you born',
-        securityAnswer: '180',
-        securityImage: 'chicken',
-      },
-      {
-        id: 2,
-        name: 'lowes',
-        userName: 'LowesUserName',
-        website: 'https://www.lowes.com',
-        passwordValue: 'lowes123',
-        passwordHint: 'general pattern',
-        securityQuestion: 'What stree were you born',
-        securityAnswer: '280',
-        securityImage: 'spacNeedle',
-      },
-      {
-        id: 3,
-        name: 'wayfair',
-        userName: 'WayfairUserName',
-        website: 'https://www.wayfair.com',
-        passwordValue: 'wayfair123',
-        passwordHint: 'general pattern',
-        securityQuestion: 'What stree were you born',
-        securityAnswer: '380',
-        securityImage: 'loveSeat',
-      },
-    ],
-  }
+  
+    const initialState = {
+      passwords: [
+        {
+          id: 1,
+          name: 'home depot',
+          userName: 'HomeDepotUserName',
+          website: '',
+          passwordValue: 'homedepot123',
+          passwordHint: 'general pattern',
+          securityQuestion: 'What stree were you born',
+          securityAnswer: '180',
+          securityImage: 'chicken',
+        },
+        {
+          id: 2,
+          name: 'lowes',
+          userName: 'LowesUserName',
+          website: 'https://www.lowes.com',
+          passwordValue: 'lowes123',
+          passwordHint: 'general pattern',
+          securityQuestion: 'What stree were you born',
+          securityAnswer: '280',
+          securityImage: 'spacNeedle',
+        },
+        {
+          id: 3,
+          name: 'wayfair',
+          userName: 'WayfairUserName',
+          website: 'https://www.wayfair.com',
+          passwordValue: 'wayfair123',
+          passwordHint: 'general pattern',
+          securityQuestion: 'What stree were you born',
+          securityAnswer: '380',
+          securityImage: 'loveSeat',
+        },
+      ],
+    
+    };
 
   const [state, dispatch] = useReducer(passwordReducer, initialState)
 
@@ -189,3 +191,5 @@ const PasswordState = (props) => {
 }
 
 export default PasswordState
+
+

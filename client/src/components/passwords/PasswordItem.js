@@ -67,21 +67,21 @@ const PasswordItem = (password) => {
 
           {securityAnswer && (
             <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Security Question:</span>{' '}
+              <span className="font-weight-bold mr-2">Security Answer:</span>{' '}
               {securityAnswer}
             </p>
           )}
 
           {securityImage && (
             <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Security Question:</span>{' '}
+              <span className="font-weight-bold mr-2">Security Image:</span>{' '}
               {securityImage}
             </p>
           )}
 
           {other && (
             <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Security Question:</span>{' '}
+              <span className="font-weight-bold mr-2">Other:</span>{' '}
               {other}
             </p>
           )}
@@ -93,7 +93,7 @@ const PasswordItem = (password) => {
             Delete
           </button>
 
-          <button className="btn bg-prussian-blue text-white mb-3 float-right" onClick={onDelete}>
+          <button className="btn bg-prussian-blue text-white mb-3 float-right" onClick={() => setCurrent(password)} >
             Update
           </button>
         </div>
