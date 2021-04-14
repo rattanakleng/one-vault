@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import { Col } from '../layout/Grid/Grid'
-import PasswordContext from '../../context/password/passwordContex'
+import PasswordContext from '../../context/password/passwordContext'
 
-const PasswordItem = (password) => {
+const PasswordItem = ({ password }) => {
+  const passwordContext = useContext(PasswordContext)
+  const { deletePassword, setCurrent, clearCurrent } = passwordContext
+
   const {
     _id,
     name,
@@ -17,88 +19,82 @@ const PasswordItem = (password) => {
     other,
   } = password
 
-  const passwordContext = useContext(PasswordContext);
-  const { deletePassword, setCurrent, clearCurrent } = passwordContext;
-  
   const onDelete = () => {
-    deletePassword(_id);
-    clearCurrent();
-  };
+    deletePassword(_id)
+    clearCurrent()
+  }
 
   return (
-    <Col size="md-6 sm-6">
-      <div className="card rounded-0 mt-3">
-        <div className="card-body p-1">
-          <h5 className="card-header bg-pale-spring rounded-0 pl-4">
-            {name.charAt(0).toUpperCase() + name.slice(1)}
-          </h5>
+    <div className="card bg-light">
+      <div className="card-body p-1">
+        <h5 className="card-header bg-pale-spring rounded-0 pl-4">
+          {name.charAt(0).toUpperCase() + name.slice(1)}
+        </h5>
 
-          <p className="card-text mx-4 mt-3">
-            <span className="font-weight-bold mr-2">User Name:</span> {userName}
-          </p>
+        <p className="card-text mx-4 mt-3">
+          <span className="font-weight-bold mr-2">User Name:</span> {userName}
+        </p>
 
+        <p className="card-text mx-4">
+          <span className="font-weight-bold mr-2">Password:</span>{' '}
+          {passwordValue}
+        </p>
+
+        {website && (
           <p className="card-text mx-4">
-            <span className="font-weight-bold mr-2">Password:</span>{' '}
-            {passwordValue}
+            <span className="font-weight-bold mr-2">Website: </span>
+            <a href={website} target="_blank" className="card-text">
+              {website}
+            </a>
           </p>
+        )}
 
-          {website && (
-            <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Website: </span>
-              <a href={website} target="_blank" className="card-text">
-                {website}
-              </a>
-            </p>
-          )}
+        {passwordHint && (
+          <p className="card-text mx-4">
+            <span className="font-weight-bold mr-2">Password Hint:</span>{' '}
+            {passwordHint}
+          </p>
+        )}
 
-          {passwordHint && (
-            <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Password Hint:</span>{' '}
-              {passwordHint}
-            </p>
-          )}
+        {securityQuestion && (
+          <p className="card-text mx-4">
+            <span className="font-weight-bold mr-2">Security Question:</span>{' '}
+            {securityQuestion}
+          </p>
+        )}
 
-          {securityQuestion && (
-            <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Security Question:</span>{' '}
-              {securityQuestion}
-            </p>
-          )}
+        {securityAnswer && (
+          <p className="card-text mx-4">
+            <span className="font-weight-bold mr-2">Security Answer:</span>{' '}
+            {securityAnswer}
+          </p>
+        )}
 
-          {securityAnswer && (
-            <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Security Answer:</span>{' '}
-              {securityAnswer}
-            </p>
-          )}
+        {securityImage && (
+          <p className="card-text mx-4">
+            <span className="font-weight-bold mr-2">Security Image:</span>{' '}
+            {securityImage}
+          </p>
+        )}
 
-          {securityImage && (
-            <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Security Image:</span>{' '}
-              {securityImage}
-            </p>
-          )}
-
-          {other && (
-            <p className="card-text mx-4">
-              <span className="font-weight-bold mr-2">Other:</span>{' '}
-              {other}
-            </p>
-          )}
-
-          <button
-            className="btn border-prussian-blue mx-2 mb-3 float-right "
-            onClick={onDelete}
-          >
-            Delete
-          </button>
-
-          <button className="btn bg-prussian-blue text-white mb-3 float-right" onClick={() => setCurrent(password)} >
-            Update
-          </button>
-        </div>
+        {other && (
+          <p className="card-text mx-4">
+            <span className="font-weight-bold mr-2">Other:</span> {other}
+          </p>
+        )}
       </div>
-    </Col>
+      <p>
+        <button
+          className="btn btn-dark btn-sm"
+          onClick={() => setCurrent(password)}
+        >
+          Edit
+        </button>
+        <button className="btn btn-danger btn-sm" onClick={onDelete}>
+          Delete
+        </button>
+      </p>
+    </div>
   )
 }
 

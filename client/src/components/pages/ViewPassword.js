@@ -1,14 +1,15 @@
-import React from 'react'
-import Passwords from '../../components/passwords/Passwords'
-import PasswordFilter from '../passwords/PasswordFilter'
-const ViewPassword = () => {
-  return (
-    <div className="bg-light-gray pt-4">
-      <h1 className="text-center my-5"> All Passwords </h1>
-      <PasswordFilter />
-      <Passwords />
-    </div>
-  )
-}
+import React from 'react';
+import Passwords from '../passwords/Passwords';
+import PasswordFilter from '../passwords/PasswordFilter';
 
-export default ViewPassword
+const Home = () => {
+  return (
+      <div className="container">
+        <PasswordFilter />
+        <Passwords />
+      </div>
+
+  );
+};
+
+export default Home;

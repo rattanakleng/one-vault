@@ -1,62 +1,29 @@
-import React, { useReducer } from 'react'
-import PasswordContext from './passwordContex'
-import passwordReducer from './passwordReducer'
-import axios from 'axios'
+import React, { useReducer } from 'react';
+import axios from 'axios';
+import PasswordContext from './passwordContext';
+import passwordReducer from './passwordReducer';
 import {
   GET_PASSWORDS,
   ADD_PASSWORD,
   DELETE_PASSWORD,
-  CLEAR_PASSWORDS,
-  PASSWORD_ERROR,
   SET_CURRENT,
   CLEAR_CURRENT,
   UPDATE_PASSWORD,
   FILTER_PASSWORDS,
+  CLEAR_PASSWORDS,
   CLEAR_FILTER,
-} from '../types'
+  PASSWORD_ERROR
+} from '../types';
 
-const PasswordState = (props) => {
-  
-    const initialState = {
-      passwords: [
-        {
-          id: 1,
-          name: 'home depot',
-          userName: 'HomeDepotUserName',
-          website: '',
-          passwordValue: 'homedepot123',
-          passwordHint: 'general pattern',
-          securityQuestion: 'What stree were you born',
-          securityAnswer: '180',
-          securityImage: 'chicken',
-        },
-        {
-          id: 2,
-          name: 'lowes',
-          userName: 'LowesUserName',
-          website: 'https://www.lowes.com',
-          passwordValue: 'lowes123',
-          passwordHint: 'general pattern',
-          securityQuestion: 'What stree were you born',
-          securityAnswer: '280',
-          securityImage: 'spacNeedle',
-        },
-        {
-          id: 3,
-          name: 'wayfair',
-          userName: 'WayfairUserName',
-          website: 'https://www.wayfair.com',
-          passwordValue: 'wayfair123',
-          passwordHint: 'general pattern',
-          securityQuestion: 'What stree were you born',
-          securityAnswer: '380',
-          securityImage: 'loveSeat',
-        },
-      ],
-    
-    };
+const PasswordState = props => {
+  const initialState = {
+    passwords: null,
+    current: null,
+    filtered: null,
+    error: null
+  };
 
-  const [state, dispatch] = useReducer(passwordReducer, initialState)
+  const [state, dispatch] = useReducer(passwordReducer, initialState);
 
   // Get Passwords
   const getPasswords = async () => {
@@ -187,9 +154,7 @@ const PasswordState = (props) => {
     >
       {props.children}
     </PasswordContext.Provider>
-  )
-}
+  );
+};
 
-export default PasswordState
-
-
+export default PasswordState;

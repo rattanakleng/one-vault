@@ -20,7 +20,7 @@ router.post(
     check(
       'password',
       'Please enter a password with 6 or more characters',
-    ).isLength({min: 8})
+    ).isLength({min: 6}),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -34,13 +34,13 @@ router.post(
       let user = await User.findOne({email});
 
       if (user) {
-        return res.status(400).json({msg: 'Email already exists'});
+        return res.status(400).json({msg: 'User already exists'});
       }
 
       user = new User({
         name,
         email,
-        password
+        password,
       });
 
       const salt = await bcrypt.genSalt(10);
@@ -59,7 +59,7 @@ router.post(
         payload,
         config.get('jwtSecret'),
         {
-          expiresIn: 3600,
+          expiresIn: 360000,
         },
         (err, token) => {
           if (err) throw err;

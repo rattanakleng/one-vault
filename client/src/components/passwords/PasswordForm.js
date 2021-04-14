@@ -1,8 +1,29 @@
-import React, { useState, useContext } from 'react'
-import PasswordContext from '../../context/password/passwordContex'
+import React, { useState, useContext, useEffect } from 'react'
+import PasswordContext from '../../context/password/passwordContext'
 
 const PasswordForm = () => {
   const passwordContext = useContext(PasswordContext)
+
+  const { addPassword, updatePassword, clearCurrent, current } = passwordContext
+
+  useEffect(() => {
+    if (current !== null) {
+      setPassword(current)
+    } else {
+      setPassword({
+        name: '',
+        userName: '',
+        website: '',
+        passwordValue: '',
+        passwordHint: '',
+        securityQuestion: '',
+        securityAnswer: '',
+        securityImage: '',
+        other: '',
+      })
+    }
+  }, [passwordContext, current])
+
   const [password, setPassword] = useState({
     name: '',
     userName: '',
@@ -27,119 +48,113 @@ const PasswordForm = () => {
     other,
   } = password
 
-  const onChange = (event) =>
-    setPassword({ ...password, [event.target.name]: event.target.value })
+  const onChange = (e) =>
+    setPassword({ ...password, [e.target.name]: e.target.value })
 
-  const onSubmit = (event) => {
-    event.preventDefault()
-    passwordContext.addPassword(password)
-    setPassword({
-      name: '',
-      userName: '',
-      website: '',
-      passwordValue: '',
-      passwordHint: '',
-      securityQuestion: '',
-      securityAnswer: '',
-      securityImage: '',
-      other: '',
-    })
+  const onSubmit = (e) => {
+    e.preventDefault()
+    if (current === null) {
+      addPassword(password)
+    } else {
+      updatePassword(password)
+    }
+    clearAll()
+  }
+
+  const clearAll = () => {
+    clearCurrent()
   }
 
   return (
-    <>
-      <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
+      <h2 className="text-primary">
+        {current ? 'Edit Password' : 'Add Password'}
+      </h2>
+      <input
+        type="text"
+        placeholder="Name"
+        name="name"
+        value={name}
+        onChange={onChange}
+      />
+      <input
+        type="text"
+        placeholder="User Name"
+        name="userName"
+        value={userName}
+        onChange={onChange}
+      />
+      <input
+        type="text"
+        placeholder="Password"
+        name="passwordValue"
+        value={passwordValue}
+        onChange={onChange}
+      />
+
+      <input
+        type="text"
+        placeholder="Website"
+        name="website"
+        value={website}
+        onChange={onChange}
+      />
+
+      <input
+        type="text"
+        placeholder="Password Hint"
+        name="passwordHint"
+        value={passwordHint}
+        onChange={onChange}
+      />
+
+      <input
+        type="text"
+        placeholder="Security Question"
+        name="securityQuestion"
+        value={securityQuestion}
+        onChange={onChange}
+      />
+
+      <input
+        type="text"
+        placeholder="Security Answer"
+        name="securityAnswer"
+        value={securityAnswer}
+        onChange={onChange}
+      />
+
+      <input
+        type="text"
+        placeholder="Security Image"
+        name="securityImage"
+        value={securityImage}
+        onChange={onChange}
+      />
+
+      <textarea
+        type="text"
+        placeholder="Other"
+        name="other"
+        value={other}
+        onChange={onChange}
+      />
+
+      <div>
         <input
-          className="form-control mb-3"
-          type="text"
-          placeholder="Name"
-          name="name"
-          value={name}
-          onChange={onChange}
+          type="submit"
+          value={current ? 'Update Password' : 'Add Password'}
+          className="btn btn-primary btn-block"
         />
-
-        <input
-          className="form-control mb-3"
-          type="text"
-          placeholder="User name"
-          name="userName"
-          value={userName}
-          onChange={onChange}
-        />
-
-        <input
-          className="form-control mb-3"
-          type="text"
-          placeholder="Password"
-          name="passwordValue"
-          value={passwordValue}
-          onChange={onChange}
-        />
-
-        <input
-          className="form-control mb-3"
-          type="text"
-          placeholder="Website"
-          name="website"
-          value={website}
-          onChange={onChange}
-        />
-
-        <input
-          className="form-control mb-3"
-          type="text"
-          placeholder="Password hint"
-          name="passwordHint"
-          value={passwordHint}
-          onChange={onChange}
-        />
-
-        <input
-          className="form-control mb-3"
-          type="text"
-          placeholder="Security Answer"
-          name="securityAnswer"
-          value={securityAnswer}
-          onChange={onChange}
-        />
-
-        <input
-          className="form-control mb-3"
-          type="text"
-          placeholder="Security question"
-          name="securityQuestion"
-          value={securityQuestion}
-          onChange={onChange}
-        />
-
-        <input
-          className="form-control mb-3"
-          type="text"
-          placeholder="Security image"
-          name="securityImage"
-          value={securityImage}
-          onChange={onChange}
-        />
-
-        <textarea
-          class="form-control mb-3"
-          type="text"
-          name="other"
-          value={other}
-          placeholder="Other"
-          rows="2"
-          onChange={onChange}
-        ></textarea>
-
+      </div>
+      {current && (
         <div>
-          <input
-            type="submit"
-            vlaue="Save"
-            className="btn bg-prussian-blue text-white mx-2"
-          />
+          <button className="btn btn-light btn-block" onClick={clearAll}>
+            Clear
+          </button>
         </div>
-      </form>
-    </>
+      )}
+    </form>
   )
 }
 
