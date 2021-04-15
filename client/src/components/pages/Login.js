@@ -43,13 +43,13 @@ const Login = (props) => {
   }
 
   return (
-    <div className="bg-pale-spring min-vh-100 bg-login mt-0">
+    <div className="min-vh-100 bg-pale-spring mt-0">
       <div className="form-container px-5">
         <h1 className="mt-5 mb-">Account Login</h1>
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <label htmlFor="email">Email Address</label>
-            <br />
+        
             <input 
               id="email"
               type="email"
@@ -60,7 +60,7 @@ const Login = (props) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="password">Password</label> <br />
+            <label htmlFor="password">Password</label>
             <input 
               id="password"
               type="password"

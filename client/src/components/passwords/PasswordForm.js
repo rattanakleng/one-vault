@@ -67,93 +67,73 @@ const PasswordForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <h2 className="text-primary">
-        {current ? 'Edit Password' : 'Add Password'}
-      </h2>
+      <h2 className="my-5">{current ? 'Edit Password' : 'Add Password'}</h2>
+
+      <label htmlFor="name">Name:</label>
+      <input type="text" name="name" value={name} onChange={onChange} />
+
+      <label htmlFor="userName">User name:</label>
+      <input type="text" name="userName" value={userName} onChange={onChange} />
+
+      <label htmlFor="passwordValue">Password:</label>
       <input
         type="text"
-        placeholder="Name"
-        name="name"
-        value={name}
-        onChange={onChange}
-      />
-      <input
-        type="text"
-        placeholder="User Name"
-        name="userName"
-        value={userName}
-        onChange={onChange}
-      />
-      <input
-        type="text"
-        placeholder="Password"
         name="passwordValue"
         value={passwordValue}
         onChange={onChange}
       />
 
-      <input
-        type="text"
-        placeholder="Website"
-        name="website"
-        value={website}
-        onChange={onChange}
-      />
+      <label htmlFor="website">Website:</label>
+      <input type="text" name="website" value={website} onChange={onChange} />
 
+      <label htmlFor="passwordHint">Password hint:</label>
       <input
         type="text"
-        placeholder="Password Hint"
         name="passwordHint"
         value={passwordHint}
         onChange={onChange}
       />
 
+      <label htmlFor="securityQuestion">Security question:</label>
       <input
         type="text"
-        placeholder="Security Question"
         name="securityQuestion"
         value={securityQuestion}
         onChange={onChange}
       />
 
+      <label htmlFor="securityAnswer">Security answer:</label>
       <input
         type="text"
-        placeholder="Security Answer"
         name="securityAnswer"
         value={securityAnswer}
         onChange={onChange}
       />
 
+      <label htmlFor="securityImage">Security image:</label>
       <input
         type="text"
-        placeholder="Security Image"
         name="securityImage"
         value={securityImage}
         onChange={onChange}
       />
 
-      <textarea
-        type="text"
-        placeholder="Other"
-        name="other"
-        value={other}
-        onChange={onChange}
-      />
+      <label htmlFor="other">Other:</label>
+      <textarea type="text" name="other" value={other} onChange={onChange} />
 
-      <div>
-        <input
-          type="submit"
-          value={current ? 'Update Password' : 'Add Password'}
-          className="btn btn-primary btn-block"
-        />
-      </div>
       {current && (
-        <div>
-          <button className="btn btn-light btn-block" onClick={clearAll}>
-            Clear
-          </button>
-        </div>
+        <button
+          className="btn btn-secondary float-right mt-3 mr-3"
+          onClick={clearAll}
+        >
+          Clear Form
+        </button>
       )}
+   
+        <button type="submit" className="btn btn-primary float-right mt-3 mb-5 mr-3">
+          {current ? 'Update Password' : 'Add Password'}
+        </button>
+    
     </form>
   )
 }

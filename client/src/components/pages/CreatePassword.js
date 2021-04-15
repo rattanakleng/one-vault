@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 import PasswordForm from '../passwords/PasswordForm'
 
 const CreatePassword = () => {
   return (
-    
-      <div>
+    <div className="min-vh-100 bg-silver-pink mt-0">
+      <div className="container px-5">
         <PasswordForm />
       </div>
-    
-  );
-};
+    </div>
+  )
+}
 
-export default CreatePassword;
+export default CreatePassword

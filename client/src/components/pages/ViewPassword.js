@@ -4,9 +4,13 @@ import PasswordFilter from '../passwords/PasswordFilter';
 
 const Home = () => {
   return (
-      <div className="container">
+      <div className="min-vh-100 bg-pale-spring mt-0bg-beau-blue">
+        <div className="container pt-5">
+
         <PasswordFilter />
         <Passwords />
+        </div>
+        
       </div>
 
   );
