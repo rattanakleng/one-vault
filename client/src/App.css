@@ -44,7 +44,7 @@ img {
   width: 100%;
 }
 
-/*Register Page*/
+/*Utilities*/
 
 .bg-baby-blue {
   background-color: var(--baby-blue);
@@ -53,7 +53,6 @@ img {
   background-color: var(--beau-blue);
 }
 
-/*Login Page*/
 .bg-pale-spring {
   background-color: var(--pale-spring);
 }
@@ -63,20 +62,14 @@ img {
 }
 
 
-/* Utilities */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
-}
 
 /* Cards */
 .card {
-  padding: 1rem;
-  border: #ccc 1px dotted;
-  margin: 0.7rem 0;
+  border: solid 1px var(--prussian-blue);
+  border-radius: 6px !important;
 }
+
+
 
 /* List */
 .list {

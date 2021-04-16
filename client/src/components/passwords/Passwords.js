@@ -15,45 +15,51 @@ const Passwords = () => {
     // eslint-disable-next-line
   }, [])
 
-
   if (passwords !== null && passwords.length === 0 && !loading) {
     return (
       <div className="container text-center">
         <h3 className="mt-5">There is no password stored!</h3>
         <h4 className="mb-4">Please create and add a new password!</h4>
-        <Link to='/createpassword'><button className="btn btn-secondary mx-auto "> Add New Password </button> </Link>
+        <Link to="/createpassword">
+          <button className="btn btn-secondary mx-auto ">
+            {' '}
+            Add New Password{' '}
+          </button>{' '}
+        </Link>
       </div>
     )
   }
 
   return (
-    <Fragment>
-      {passwords !== null && !loading ? (
-        <TransitionGroup>
-          {filtered !== null
-            ? filtered.map((password) => (
-                <CSSTransition
-                  key={password._id}
-                  timeout={500}
-                  classNames="item"
-                >
-                  <PasswordItem password={password} />
-                </CSSTransition>
-              ))
-            : passwords.map((password) => (
-                <CSSTransition
-                  key={password._id}
-                  timeout={500}
-                  classNames="item"
-                >
-                  <PasswordItem password={password} />
-                </CSSTransition>
-              ))}
-        </TransitionGroup>
-      ) : (
-        <Spinner />
-      )}
-    </Fragment>
+
+      <Fragment>
+        {passwords !== null && !loading ? (
+          <TransitionGroup>
+            {filtered !== null
+              ? filtered.map((password) => (
+                  <CSSTransition
+                    key={password._id}
+                    timeout={500}
+                    classNames="item"
+                  >
+                    <PasswordItem password={password} />
+                  </CSSTransition>
+                ))
+              : passwords.map((password) => (
+                  <CSSTransition
+                    key={password._id}
+                    timeout={500}
+                    classNames="item"
+                  >
+                    <PasswordItem password={password} />
+                  </CSSTransition>
+                ))}
+          </TransitionGroup>
+        ) : (
+          <Spinner />
+        )}
+      </Fragment>
+
   )
 }
 
