@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import AlertContext from '../../context/alert/alertContext'
 import AuthContext from '../../context/auth/authContext'
-
+import { Link } from 'react-router-dom'
 const Register = (props) => {
   const alertContext = useContext(AlertContext)
   const authContext = useContext(AuthContext)
@@ -49,11 +49,8 @@ const Register = (props) => {
 
   return (
     <div className="min-vh-100 bg-baby-blue mt-0">
-
       <div className="form-container">
-        <h1 className="my-5">
-          Account Register
-        </h1>
+        <h1 className="my-5">Account Register</h1>
 
         <form onSubmit={onSubmit}>
           <div className="form-group">
@@ -107,6 +104,12 @@ const Register = (props) => {
           <button type="submit" className="btn btn-primary px-4">
             Register
           </button>
+
+          <Link to="/login">
+            <button type="submit" className="btn btn-secondary px-4 ml-3">
+              Cancel
+            </button>
+          </Link>
         </form>
       </div>
     </div>
