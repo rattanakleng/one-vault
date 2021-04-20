@@ -68,7 +68,7 @@ const PasswordForm = () => {
 
   return (
     <form onSubmit={onSubmit} className="pb-5">
-      <h2 className="mb-5">{current ? 'Edit Password' : 'Add Password'}</h2>
+      <h2 className="mb-5 text-center">{current ? 'Edit Password' : 'Add Password'}</h2>
 
       <label htmlFor="name">Name:</label>
       <input type="text" name="name" value={name} onChange={onChange} />

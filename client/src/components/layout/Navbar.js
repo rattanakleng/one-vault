@@ -33,10 +33,10 @@ const Navbar = ({ title, icon }) => {
         <Link to='/'>View Password</Link>
       </li>
       <li>
-        <a onClick={onLogout} href='#!'>
+        <Link to="/login" onClick={onLogout}>
           <i className='fas fa-sign-out-alt' />{' '}
           <span className='hide-sm'>Logout</span>
-        </a>
+        </Link>
       </li>
       
     </Fragment>

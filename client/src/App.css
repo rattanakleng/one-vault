@@ -7,7 +7,6 @@
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #28a745;
-
   --baby-blue: #a2c7fe;
   --pale-spring: #e5ddae;
   --prussian-blue: #112a46;
@@ -40,9 +39,6 @@ ul {
   list-style: none;
 }
 
-/* img {
-  width: 100%;
-} */
 
 .nav-logo {
   height:"1rem";
@@ -66,15 +62,12 @@ ul {
 }
 
 
-
 /* Cards */
 .card {
   border: solid 1px var(--prussian-blue);
   border-radius: 6px !important;
   background: transparent;
 }
-
-
 
 /* List */
 .list {
@@ -84,31 +77,6 @@ ul {
 .list li {
   padding-bottom: 0.3rem;
 }
-
-/* Grid
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
-}
-
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
-}
-
-.grid-2-3 {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-gap: 2rem;
-} */
 
 .btn-primary {
   background-color: var(--prussian-blue);
@@ -191,8 +159,6 @@ ul {
   border: #ccc solid 1px;
 }
 
-
-
 .bg-light,
 .badge-light {
   border: #ccc solid 1px;
@@ -225,7 +191,6 @@ textarea  {
   color: #888;
 }
 
-
 .form-container {
   max-width: 500px;
   margin: 0 auto;
@@ -233,21 +198,6 @@ textarea  {
   padding: 0 2rem;
 }
 
-.form-container h1,
-h2,
-h3 {
-  text-align: center;
-}
-
-table th,
-table td {
-  padding: 1rem;
-  text-align: left;
-}
-
-table th {
-  background: var(--light-color);
-}
 
 /* Navbar */
 .navbar {
@@ -255,7 +205,7 @@ table th {
   justify-content: space-between;
   align-items: center;
   padding: 0.7rem 3rem;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   border-bottom: solid 1px var(--primary-color);
 }
