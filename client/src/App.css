@@ -40,8 +40,12 @@ ul {
   list-style: none;
 }
 
-img {
+/* img {
   width: 100%;
+} */
+
+.nav-logo {
+  height:"1rem";
 }
 
 /*Utilities*/
@@ -67,6 +71,7 @@ img {
 .card {
   border: solid 1px var(--prussian-blue);
   border-radius: 6px !important;
+  background: transparent;
 }
 
 
@@ -203,6 +208,7 @@ input {
   border: solid 1px var(--prussian-blue);
   border-radius: 6px;
   width: 100%;
+  background: transparent;
 }
 
 textarea  {
@@ -210,6 +216,7 @@ textarea  {
   border: solid 1px var(--prussian-blue);
   border-radius: 6px;
   width: 100%;
+  background: transparent;
 }
 
 .form-text {

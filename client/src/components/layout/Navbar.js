@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Fragment, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -57,7 +58,7 @@ const Navbar = ({ title, icon }) => {
     <div className='navbar'>
       
         <Link to='/' >
-          {/* <img src="./assets/img/safebox-logo.png" /> */}
+          <img src="./assets/img/one-vault-logo.png" className="nav-logo" height="40"  />
         </Link>
       
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
