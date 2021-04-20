@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import PasswordContext from '../../context/password/passwordContext'
+import { Link } from 'react-router-dom'
 
 const PasswordForm = () => {
   const passwordContext = useContext(PasswordContext)
@@ -66,8 +67,8 @@ const PasswordForm = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2 className="my-5">{current ? 'Edit Password' : 'Add Password'}</h2>
+    <form onSubmit={onSubmit} className="pb-5">
+      <h2 className="mb-5">{current ? 'Edit Password' : 'Add Password'}</h2>
 
       <label htmlFor="name">Name:</label>
       <input type="text" name="name" value={name} onChange={onChange} />
@@ -122,18 +123,40 @@ const PasswordForm = () => {
       <textarea type="text" name="other" value={other} onChange={onChange} />
 
       {current && (
-        <button
-          className="btn btn-secondary float-right mt-3 mr-3"
-          onClick={clearAll}
-        >
-          Clear Form
-        </button>
+        <>
+          <Link to="/">
+            <button
+              className="btn btn-secondary float-right mt-3 mr-3"
+              onClick={clearAll}
+            >
+              Cancel
+            </button>
+          </Link>
+
+          <button
+            type="submit"
+            className="btn btn-primary float-right mt-3 mb-5 mr-3"
+          >
+            Update Password
+          </button>
+        </>
       )}
-   
-        <button type="submit" className="btn btn-primary float-right mt-3 mb-5 mr-3">
-          {current ? 'Update Password' : 'Add Password'}
-        </button>
-    
+
+      {!current && (
+        <>
+          <button className="btn btn-secondary float-right mt-3 mr-3" onClick={clearAll}>
+            Clear Form
+          </button>
+
+          <button
+            type="submit"
+            className="btn btn-primary float-right mt-3 mr-3"
+          >
+            Add Password
+          </button>
+          </>
+
+      )}
     </form>
   )
 }

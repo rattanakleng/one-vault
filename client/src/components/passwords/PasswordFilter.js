@@ -26,7 +26,7 @@ const PasswordFilter = () => {
       <input
         ref={text}
         type='text'
-        placeholder='Filter Passwords...'
+        placeholder='Search password by name'
         onChange={onChange}
       />
     </form>
