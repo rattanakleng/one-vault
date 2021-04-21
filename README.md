@@ -95,10 +95,10 @@ npm run client  # React Client Only :3000
 ```
 ## Future Development
 
-Update CSS for mobile layout
-Add password filter and sorting to search View Passwords Page
-Add password reset/recovery in case the user forgets a log-in password
-Create a mobile application
+- Update CSS for mobile layout
+- Add password filter and sorting to search View Passwords Page
+- Add password reset/recovery in case the user forgets a log-in password
+- Create a mobile application
 
 ## Contributor
 Rattanak Leng 
