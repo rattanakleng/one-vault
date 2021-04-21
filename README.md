@@ -54,23 +54,27 @@ HTML, CSS, JavaScript, React, Mongoose, MongoDB, JSON Web Token(JWT), Bcrypt, Ex
 
 ### Register page
 
-![Register page](./img/desktop-layout.JPG)
+![Register page](https://user-images.githubusercontent.com/29310963/115632017-c0abca00-a2bb-11eb-940a-d86591d55ff9.jpg)
 
 ### Login page
 
-![Login page](./img/desktop-layout.JPG)
+![Login page](https://user-images.githubusercontent.com/29310963/115632058-d28d6d00-a2bb-11eb-9920-1d25f957e6d3.jpg)
+
+### View all passwords page
+This page will display when there is no password saved in the user account.
+
+![View all password page](https://user-images.githubusercontent.com/29310963/115632126-ef29a500-a2bb-11eb-8ba8-a359b7a73be2.jpg)
+
+This page will display when there are one or more passwords saved by the user.
+![View all password page](https://user-images.githubusercontent.com/29310963/115632424-87278e80-a2bc-11eb-8861-b4bd7726b1cf.jpg)
 
 ### Create a new password page
 
-![Create new password page](./img/desktop-layout.JPG)
-
-### View all passwords page
-
-![View all password page](./img/desktop-layout.JPG)
+![Create new password page](https://user-images.githubusercontent.com/29310963/115632555-d8378280-a2bc-11eb-8ad1-ea6a567561e3.jpg)
 
 ### Update an exiting password page
 
-![Update an existing password page](./img/desktop-layout.JPG)
+![Update an existing password page](https://user-images.githubusercontent.com/29310963/115634105-c7d3d780-a2bd-11eb-9c56-5fa2f24bb312.jpg)
 
 
 ## Usage
@@ -95,10 +99,10 @@ npm run client  # React Client Only :3000
 ```
 ## Future Development
 
-Update CSS for mobile layout
-Add password filter and sorting to search View Passwords Page
-Add password reset/recovery in case the user forgets a log-in password
-Create a mobile application
+- Update CSS for mobile layout
+- Add password filter and sorting to search View Passwords Page
+- Add password reset/recovery in case the user forgets a log-in password
+- Create a mobile application
 
 ## Contributor
 Rattanak Leng 
