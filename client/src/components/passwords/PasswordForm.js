@@ -85,7 +85,7 @@ const PasswordForm = () => {
       />
 
       <label htmlFor="website">Website:</label>
-      <input type="text" name="website" value={website} onChange={onChange} />
+      <input type="text" name="website" value={website} onChange={onChange} placeholder=" https://www.example.com/" />
 
       <label htmlFor="passwordHint">Password hint:</label>
       <input
