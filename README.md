@@ -12,7 +12,9 @@
    <img src="https://img.shields.io/badge/-Javascript-red" />
    <img src="https://img.shields.io/badge/-Node.js-yellow" />
     <img src="https://img.shields.io/badge/-Mongoose-violet" />
-    <img src="https://img.shields.io/badge/-MongoDB-green" />    
+    <img src="https://img.shields.io/badge/-MongoDB-green" />
+    <img src="https://img.shields.io/badge/-JWT-teal" /> 
+    <img src="https://img.shields.io/badge/-Bcrypt-gray" /> 
    <img src="https://img.shields.io/badge/-Bootstrap-indigo" />
 </p>
 
