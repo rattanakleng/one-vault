@@ -38,7 +38,7 @@ This application was developed using React, Express, JWT, Bcript, Mongoose, and 
 
 ## Live Page
 
-https://rattanakleng.github.io/one-vault/
+[Live Page](https://one-vault.herokuapp.com/)
 
 ## Application Features
 
