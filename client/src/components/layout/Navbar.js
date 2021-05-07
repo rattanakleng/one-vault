@@ -58,7 +58,7 @@ const Navbar = ({ title, icon }) => {
     <div className='navbar'>
       
         <Link to='/' >
-          <img src="./assets/img/one-vault-logo.png" className="nav-logo" height="40"  />
+          <img src="./assets/img/one-vault-logo.png" alt="logo" className="nav-logo" height="40"  />
         </Link>
       
       <ul>{isAuthenticated ? authLinks : guestLinks}</ul>
