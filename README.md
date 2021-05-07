@@ -20,7 +20,7 @@
 
 ## Table of Contents
 - [Description](#description)
-- [Live page](#Live-Page)
+- [Deployed Link](#Deployed-Link)
 - [Application Features](#Application-Features)
 - [Programming Language and Tools](#Programming-Language-and-Tools)
 - [Page Layout](#Page-Layout)
@@ -36,9 +36,9 @@ One-Vault is an application that allows users to save their usernames and passwo
  
 This application was developed using React, Express, JWT, Bcript, Mongoose, and MongoDB
 
-## Live Page
+## Deployed Link
 
-[Live Page](https://one-vault.herokuapp.com/)
+[Live page](https://one-vault.herokuapp.com/)
 
 ## Application Features
 
@@ -60,7 +60,7 @@ HTML, CSS, JavaScript, React, Mongoose, MongoDB, JSON Web Token(JWT), Bcrypt, Ex
 
 ### Login page
 
-![Login page](https://user-images.githubusercontent.com/29310963/115632058-d28d6d00-a2bb-11eb-9920-1d25f957e6d3.jpg)
+![Go to ](https://user-images.githubusercontent.com/29310963/115632058-d28d6d00-a2bb-11eb-9920-1d25f957e6d3.jpg)
 
 ### View all passwords page
 This page will display when there is no password saved in the user account.
