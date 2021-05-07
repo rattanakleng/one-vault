@@ -68,7 +68,9 @@ const PasswordForm = () => {
 
   return (
     <form onSubmit={onSubmit} className="pb-5">
-      <h2 className="mb-5 text-center">{current ? 'Edit Password' : 'Add Password'}</h2>
+      <h2 className="mb-5 text-center">
+        {current ? 'Edit Password' : 'Add Password'}
+      </h2>
 
       <label htmlFor="name">Name:</label>
       <input type="text" name="name" value={name} onChange={onChange} />
@@ -85,7 +87,13 @@ const PasswordForm = () => {
       />
 
       <label htmlFor="website">Website:</label>
-      <input type="text" name="website" value={website} onChange={onChange} placeholder=" https://www.example.com/" />
+      <input
+        type="text"
+        name="website"
+        value={website}
+        onChange={onChange}
+        placeholder=" https://www.example.com/"
+      />
 
       <label htmlFor="passwordHint">Password hint:</label>
       <input
@@ -133,18 +141,23 @@ const PasswordForm = () => {
             </button>
           </Link>
 
-          <button
-            type="submit"
-            className="btn btn-primary float-right mt-3 mb-5 mr-3"
-          >
-            Update Password
-          </button>
+          <Link to="/">
+            <button
+              type="submit"
+              className="btn btn-primary float-right mt-3 mb-5 mr-3"
+            >
+              Update Password
+            </button>
+          </Link>
         </>
       )}
 
       {!current && (
         <>
-          <button className="btn btn-secondary float-right mt-3 mr-3" onClick={clearAll}>
+          <button
+            className="btn btn-secondary float-right mt-3 mr-3"
+            onClick={clearAll}
+          >
             Clear Form
           </button>
 
@@ -154,8 +167,7 @@ const PasswordForm = () => {
           >
             Add Password
           </button>
-          </>
-
+        </>
       )}
     </form>
   )
