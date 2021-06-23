@@ -1,4 +1,4 @@
 {
-    "mongoURI": "Add link connect to your mongo db",
+    "mongoURI": "mongodb+srv://rattanak-admin:Password2020@cluster0.7g7ae.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
       "jwtSecret": "secret"
   }
