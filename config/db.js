@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // const config = require('config');
 const mongoURI =
-   'Update your db link';
+"mongodb+srv://rattanak-admin:Password2020@cluster0.7g7ae.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const db = mongoURI;
 
 const connectDB = async () => {
